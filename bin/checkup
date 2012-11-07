@@ -1,11 +1,9 @@
-#!/usr/bin/env ruby
-# encoding: utf-8
+#! /usr/bin/env ruby
 
-# Load the checkup core library
+# whole library
 require File.expand_path("../../lib/checkup", __FILE__)
-
-# Load the checkup command line interface utility
+# cli interface for the binary
 require File.expand_path("../../lib/checkup/cli/utility", __FILE__)
 
-# Initialize the Backup command line utility
+
 Checkup::CLI::Utility.start

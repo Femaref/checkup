@@ -8,9 +8,14 @@ module Checkup
       def initialize(model)
         @model = model
         load_defaults!
+        
+        yield self
       end
       
       def perform!
+      end
+      
+      def identifier
       end
       
     end

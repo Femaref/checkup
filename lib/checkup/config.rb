@@ -1,13 +1,14 @@
-# encoding: utf-8
-
 module Checkup
   module Config
     class << self
       def add_dsl_constants!
         create_modules(
           self,
-          [ # Services
-            ['Http']
+          [ 
+            # Services
+            ['Http'],
+            # Notifiers
+            ['Mail']
           ]
         )
       end
