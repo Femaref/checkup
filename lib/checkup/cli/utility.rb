@@ -9,6 +9,10 @@ module Checkup
       def perform
         root_path = options[:root_path]
         
+        if root_path == ""
+          root_path = Checkup::Config::DEFAULT_ROOT_PATH
+        end
+              
         load root_path
         
         triggers = options[:trigger].split(",")
@@ -28,6 +32,10 @@ module Checkup
       def list
         root_path = options[:root_path]
         
+        if root_path == ""
+          root_path = Checkup::Config::DEFAULT_ROOT_PATH
+        end
+        
         load root_path
         
         Model.all.each do |model|
@@ -38,7 +46,13 @@ module Checkup
       private
       
       def load (path)
-        Dir[File.join(path, "*")].each do |file|
+        path = File.expand_path path
+        
+        if !Dir.exists? path
+          FileUtils.mkdir_p path
+        end
+              
+        Dir[File.join(path, "*.rb")].each do |file|
           Checkup::Config.class_eval File.read(File.expand_path(File.basename(file), path))
         end
       end

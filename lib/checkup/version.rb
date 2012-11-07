@@ -13,7 +13,7 @@ module Checkup
     #  Defines the minor version
     # PATCH:
     #  Defines the patch version
-    MAJOR, MINOR, PATCH = 0, 0, 1
+    MAJOR, MINOR, PATCH = 0, 0, 2
 
     ##
     # Returns the major version ( big release based off of multiple minor releases )
