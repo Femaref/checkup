@@ -47,11 +47,13 @@ module Checkup
       
       def load (path)
         path = File.expand_path path
-        
+
+        Checkup::Config.root_path = path
+
         if !Dir.exists? path
           FileUtils.mkdir_p path
         end
-              
+
         Dir[File.join(path, "*.rb")].each do |file|
           Checkup::Config.class_eval File.read(File.expand_path(File.basename(file), path))
         end

@@ -118,10 +118,14 @@ module Checkup
       ##
       # Receives an Array of Strings to be written to the log file.
       def to_file(lines)
-       # File.open(File.join(Config.log_path, 'checkup.log'), 'a') do |file|
-       #   lines.each {|line| file.puts line }
-       # end
-       # messages.push(*lines)
+        if !Dir.exists? File.join(Config.root_path, 'logs')
+          FileUtils.mkdir_p File.join(Config.root_path, 'logs')
+        end
+      
+        File.open(File.join(Config.root_path, 'logs', 'checkup.log'), 'a') do |file|
+         lines.each {|line| file.puts line }
+        end
+        messages.push(*lines)
       end
 
       ##

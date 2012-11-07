@@ -1,8 +1,11 @@
 module Checkup
   module Config
     DEFAULT_ROOT_PATH = '~/.checkup'
-  
+
     class << self
+      attr_accessor :root_path
+    
+    
       def add_dsl_constants!
         create_modules(
           self,
