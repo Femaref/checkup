@@ -19,6 +19,5 @@ Gem::Specification.new do |gem|
   gem.executables   = ['checkup']
 
   gem.add_dependency 'thor',   ['~> 0.14.6']
-  gem.add_dependency 'httparty'
 
 end
