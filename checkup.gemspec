@@ -9,7 +9,8 @@ Gem::Specification.new do |gem|
   gem.authors     = 'Heiko Moeller'
   gem.email       = 'femaref@googlemail.com'
   gem.homepage    = 'https://github.com/Femaref/checkup'
-  gem.summary     = ''
+  gem.summary     = 'Small tool to check service status'
+  gem.description = 'Checkup is a simple tool to check the status of services, including websites'
 
   
   gem.files         = %x[git ls-files].split("\n")
