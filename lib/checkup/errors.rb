@@ -3,11 +3,24 @@ module Checkup
   module ErrorsHelper
     def const_missing(const)
       if const.to_s.end_with?('Error')
-        module_eval("class #{const} < Checkup::Errors::Error; end")
+        # create new exception class
+        module_eval do
+          new_class = Class.new Checkup::Errors::Error
+          const_set const, new_class
+        end
+        
       else
-        module_eval("module #{const}; extend Checkup::ErrorsHelper; end")
+        
+        # dealing with a module here, create it
+        module_eval do
+          new_module = Module.new do
+            extend Checkup::ErrorsHelper
+          end
+          
+          const_set const, new_module
+        end
       end
-      const_get(const)
+      const_get const
     end
   end
   

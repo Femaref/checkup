@@ -8,7 +8,7 @@ Gem::Specification.new do |gem|
   gem.platform    = Gem::Platform::RUBY
   gem.authors     = 'Heiko Moeller'
   gem.email       = 'femaref@googlemail.com'
-  gem.homepage    = 'http://rubygems.org/gems/checkup'
+  gem.homepage    = 'https://github.com/Femaref/checkup'
   gem.summary     = ''
 
   
